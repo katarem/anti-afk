@@ -54,7 +54,7 @@ public class Functions {
         try {
             Robot robot = new Robot();
             while (true) {
-                System.out.println("Simulando movimiento...");
+                System.out.println("Simulating movement...");
                 robot.keyPress(KeyEvent.VK_F);
                 Thread.sleep(Duration.ofMinutes(afkDelay));
             }
