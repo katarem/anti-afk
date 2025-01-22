@@ -44,14 +44,33 @@ cd anti-afk
 
 # Create the ejecutable jar
 mvn clean package
-
-# Execute and enjoy
-java -jar target/anti-afk-1.0.0.jar
 ```
 
 ## Usage
 
-Launch the JAR you can download on the [releases](https://github.com/katarem/anti-afk/releases) page, or [compile it yourself](#installation).
+Before launching, you should create the configuration file.
+
+Create a file named ```config.props``` with this property inside:
+```
+delay=5
+```
+You can configure the delay (in minutes) between key pushes.
+
+Download the JAR on the [releases](https://github.com/katarem/anti-afk/releases) page, or [compile it yourself](#installation).
+
+The folder should look like this
+```
+/
+ - anti-afk.jar
+ - config.props
+```
+
+To execute the application just use
+
+```bash
+java -jar anti-afk.jar
+```
+
 
 To exit the program, just press the **ESC** key.
 
