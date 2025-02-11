@@ -1,9 +1,7 @@
 package io.github.katarem;
 
 import java.awt.AWTException;
-import java.awt.Frame;
 import java.awt.Robot;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -28,28 +26,6 @@ public class Functions {
         }
     }
 
-    public static Frame setupFrame() {
-        Frame frame = new Frame();
-
-        frame.setSize(200, 200);
-        frame.setUndecorated(true);
-        frame.setOpacity(0.0f);
-        frame.setVisible(true);
-
-        frame.addKeyListener(new KeyAdapter() {
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    System.out.println("Cerrando...");
-                    System.exit(0);
-                }
-            }
-
-        });
-        return frame;
-    }
-
     public static void simulateMovement(long afkDelay) {
         try {
             Robot robot = new Robot();
@@ -62,29 +38,6 @@ public class Functions {
             // Ignore
         }
 
-    }
-
-    public static void focusRequester(Frame frame) {
-        try {
-
-            Runnable focusTask = () -> {
-
-                try {
-                    while (true) {
-                        Thread.sleep(200L);
-                        frame.requestFocus();
-                    }
-                } catch (InterruptedException e) {
-                    // Ignore
-                }
-
-            };
-
-            var t = new Thread(focusTask);
-            t.start();
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
     }
 
 }

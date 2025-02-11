@@ -1,6 +1,5 @@
 package io.github.katarem;
 
-import java.awt.Frame;
 import java.io.IOException;
 
 import io.github.katarem.model.Settings;
@@ -10,13 +9,7 @@ public class App {
         try {
 
             Settings settings = Functions.loadSettings();
-
-            Long delay = settings.getDelay();
-
-            Frame frame = Functions.setupFrame();
-
-            Functions.simulateMovement(delay);
-            Functions.focusRequester(frame);
+            Functions.simulateMovement(settings.getDelay());
 
         } catch (IOException e) {
         }
