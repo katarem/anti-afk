@@ -1,18 +1,20 @@
 package io.github.katarem.model;
 
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
+
 public class Settings {
     private long delay;
+    private ChronoUnit timeUnit;
 
-    public long getDelay() {
-        return delay;
+    public Settings(long afkDelay, ChronoUnit timeUnit) {
+        this.delay = afkDelay;
+        this.timeUnit = timeUnit;
+
     }
 
-    public void setDelay(long afkDelay) {
-        this.delay = afkDelay;
-    }
-
-    public Settings(long afkDelay) {
-        this.delay = afkDelay;
+    public Duration getDelay() {
+        return Duration.of(delay, timeUnit);
     }
 
 }
